@@ -37,4 +37,8 @@ public class Account {
         this.userIdx = userIdx;
         this.balance = balance;
     }
+
+    public void updateCost(int balance) {
+        this.balance = balance;
+    }
 }
