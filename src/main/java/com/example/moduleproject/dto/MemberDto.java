@@ -15,7 +15,7 @@ public record MemberDto(
         LocalDate birthday
 ) {
 
-    public MemberDto fromEntity(Member member) {
+    public static MemberDto fromEntity(Member member) {
         return new MemberDto(
                 member.getIdx(),
                 member.getUsername(),

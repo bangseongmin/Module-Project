@@ -1,6 +1,5 @@
 package com.example.moduleproject.domain;
 
-import com.example.moduleproject.domain.constant.UsageType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,29 +26,19 @@ public class Account {
     private Long userIdx;
 
     /**
-     * 사용처
+     * 잔액
      */
-    @Column(name = "usageType", nullable = false)
-    private UsageType usage;
-
-    /**
-     * 금액
-     */
-    @Column(name = "cost", nullable = false)
-    private int cost;
-
-    /**
-     * 메모
-     */
-    @Column(name = "momo")
-    private String momo;
+    @Builder.Default @Column(name = "balance", nullable = false)
+    private int balance = 0;
 
     @Builder
-    public Account(Long idx, Long userIdx, UsageType usage, int cost, String momo) {
+    public Account(Long idx, Long userIdx, int balance) {
         this.idx = idx;
         this.userIdx = userIdx;
-        this.usage = usage;
-        this.cost = cost;
-        this.momo = momo;
+        this.balance = balance;
+    }
+
+    public void updateCost(int balance) {
+        this.balance = balance;
     }
 }
