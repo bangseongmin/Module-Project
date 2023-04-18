@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 
-@RequiredArgsConstructor
 public record MemberDto(
         Long idx,
         String username,
