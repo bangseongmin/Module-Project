@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@Table(name = "account_history")
 @Entity
 public class AccountHistory {
 

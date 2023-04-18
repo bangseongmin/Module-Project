@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@Table(name = "account")
 @Entity
 public class Account {
 

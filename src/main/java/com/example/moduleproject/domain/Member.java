@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor
+@Table(name = "member")
 @Entity
 public class Member {
 
@@ -57,5 +58,9 @@ public class Member {
         this.fullname = fullname;
         this.age = age;
         this.birthday = birthday;
+    }
+
+    public void updatePassword(String updatedPw) {
+        this.password = updatedPw;
     }
 }
