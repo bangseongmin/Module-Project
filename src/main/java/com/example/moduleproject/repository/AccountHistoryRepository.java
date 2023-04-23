@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface AccountHistoryRepository extends JpaRepository<AccountHistory, Long> {
 
-    List<AccountHistory> findAllByAccountIdx(Long id);
+    List<AccountHistory> findAllByAccount_Idx(Long acoountId);
 }

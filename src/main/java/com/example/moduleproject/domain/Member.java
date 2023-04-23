@@ -1,15 +1,11 @@
 package com.example.moduleproject.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
-@ToString(callSuper = true)
 @NoArgsConstructor
 @Table(name = "member")
 @Entity
@@ -52,7 +48,8 @@ public class Member {
     private LocalDate birthday;
 
     @Builder
-    public Member(String username, String password, String fullname, int age, LocalDate birthday) {
+    public Member(Long idx, String username, String password, String fullname, int age, LocalDate birthday) {
+        this.idx = idx;
         this.username = username;
         this.password = password;
         this.fullname = fullname;

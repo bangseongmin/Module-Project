@@ -1,8 +1,6 @@
 package com.example.moduleproject.dto;
 
 import com.example.moduleproject.domain.Member;
-import lombok.RequiredArgsConstructor;
-
 import java.time.LocalDate;
 
 public record MemberDto(

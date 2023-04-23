@@ -14,6 +14,8 @@ import java.util.Optional;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final AccountService accountService;
+
 
     /**
      * 회원가입
@@ -48,6 +50,8 @@ public class MemberService {
                 .age(request.age())
                 .build());
 
+        accountService.createAccount(member);
+
         return MemberDto.fromEntity(member);
     }
 
@@ -69,5 +73,11 @@ public class MemberService {
 
         // 토큰 발급
         return "TOKEN";
+    }
+
+    public Member findByIdOrException(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(() -> {
+            throw new NullPointerException();
+        });
     }
 }

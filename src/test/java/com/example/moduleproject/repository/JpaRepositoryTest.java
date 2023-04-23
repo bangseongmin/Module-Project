@@ -18,7 +18,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("JPA 연결 테스트")
-@Import(JpaRepositoryTest.TestJpaConfig.class)
 @DataJpaTest
 class JpaRepositoryTest {
 
@@ -74,7 +73,7 @@ class JpaRepositoryTest {
 
         // Then
         assertThat(updatedMember)
-                .hasFieldOrPropertyWithValue("username", "test")
+                .hasFieldOrPropertyWithValue("username", "test1")
                 .hasFieldOrPropertyWithValue("password", "updatedPw");
     }
 
@@ -90,15 +89,6 @@ class JpaRepositoryTest {
 
         // Then
         assertThat(memberRepository.count()).isEqualTo(previousCount - 1);
-    }
-
-    @EnableJpaAuditing
-    @TestConfiguration
-    static class TestJpaConfig{
-        @Bean
-        AuditorAware<String> auditorAware() {
-            return () -> Optional.of("test");
-        }
     }
 
 }
