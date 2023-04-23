@@ -1,16 +1,13 @@
 package com.example.moduleproject.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
-@ToString(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "member")
 @Entity
 public class Member {

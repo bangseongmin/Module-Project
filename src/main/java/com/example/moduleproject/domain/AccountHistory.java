@@ -1,15 +1,11 @@
 package com.example.moduleproject.domain;
 
 import com.example.moduleproject.domain.constant.UsageType;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
-@ToString(callSuper = true)
 @NoArgsConstructor
 @Table(name = "account_history")
 @Entity
@@ -26,8 +22,8 @@ public class AccountHistory {
     /**
      * 계좌 인덱스
      */
-    @Column(name = "accountIdx")
-    private Long accountIdx;
+    @OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "accountIdx")
+    private Account account;
 
     /**
      * 사용처
@@ -44,12 +40,12 @@ public class AccountHistory {
     /**
      * 금액
      */
-    @Builder.Default @Column(name = "cost", nullable = false)
+    @Column(name = "cost", nullable = false)
     private int cost = 0;
 
     @Builder
-    public AccountHistory(Long accountIdx, UsageType usage, String momo, int cost) {
-        this.accountIdx = accountIdx;
+    public AccountHistory(Account account, UsageType usage, String momo, int cost) {
+        this.account = account;
         this.usage = usage;
         this.momo = momo;
         this.cost = cost;

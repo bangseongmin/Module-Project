@@ -1,7 +1,6 @@
 package com.example.moduleproject.controller;
 
 import com.example.moduleproject.dto.MemberDto;
-import com.example.moduleproject.service.AccountService;
 import com.example.moduleproject.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
 
     private final MemberService memberService;
-    private final AccountService accountService;
 
     /**
      * 회원가입
@@ -22,8 +20,6 @@ public class MemberController {
     @PostMapping
     public void registerMember(MemberDto request) {
         MemberDto member = memberService.registerMember(request);
-
-        accountService.createAccount(member);
     }
 
     /**
