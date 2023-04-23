@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "member")
 @Entity
 public class Member {
@@ -49,7 +48,8 @@ public class Member {
     private LocalDate birthday;
 
     @Builder
-    public Member(String username, String password, String fullname, int age, LocalDate birthday) {
+    public Member(Long idx, String username, String password, String fullname, int age, LocalDate birthday) {
+        this.idx = idx;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
